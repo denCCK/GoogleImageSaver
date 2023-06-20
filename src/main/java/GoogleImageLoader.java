@@ -21,7 +21,7 @@ public class GoogleImageLoader {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get(URL);
 
-        String xpathInput = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input";
+        String xpathInput = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/textarea";
         WebElement element = webDriver.findElement(By.xpath(xpathInput));
         element.sendKeys(QUERY);
         element.sendKeys(Keys.ENTER);
@@ -65,7 +65,7 @@ public class GoogleImageLoader {
     private static void saveImage(WebDriver webDriver, int numberImage, String query) {
         WebElement image = webDriver.findElement(By.tagName("img"));
         File screenshot = image.getScreenshotAs(OutputType.FILE);
-        new File("" + query).mkdir();
+        new File("out/" + query).mkdir();
         try {
             FileUtils.copyFile(screenshot, new File("out/" + query + "/" + numberImage + ".jpeg"));
         } catch (IOException e) {

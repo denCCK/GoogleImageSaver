@@ -8,6 +8,8 @@ public class Main {
         System.out.println("Введите количество изображений:");
         int pages = Integer.parseInt(scanner.nextLine());
 
+        GoogleImageLoader loader = new GoogleImageLoader(query, pages);
+        loader.parseAndLoad();
 
         System.out.println("Изображения скачаны");
     }
